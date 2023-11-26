@@ -9,8 +9,6 @@ export default function TopBar() {
   return (
     <Box
       sx={{
-        // background: "#efefef",
-        // border: "1.4px solid #00ADEF; ",
         borderRadius: "15px",
         py: 2,
       }}

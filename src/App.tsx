@@ -1,13 +1,18 @@
-import {AppMenu, TopBar} from "./layout"
-import { Home } from "./pages"
+import { AppMenu } from "./layout";
+import { CardInfo, Home } from "./pages"
+import {Route, Routes} from "react-router-dom";
+
 
 function App() {
 
   return (
     <>
       <AppMenu />
-      <TopBar />
-      <Home />
+
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/card-info' element={<CardInfo/>}/>
+    </Routes>
     </>
   )
 }

@@ -1,9 +1,14 @@
 import { GameCard } from "../../Components";
+import {TopBar} from "../../layout"
+
 
 export default function Home() {
   return (
     <div>
-        <GameCard />
+      <TopBar />
+      <GameCard />
+      <GameCard />
+      <GameCard />
     </div>
-  )
+  );
 }
