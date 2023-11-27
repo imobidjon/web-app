@@ -7,9 +7,12 @@ import {
   IconButton,
   Typography,
   Menu,
-  Avatar,
   Tooltip,
 } from "@mui/material";
+import FmdGoodIcon from "@mui/icons-material/FmdGood";
+import SearchIcon from "@mui/icons-material/Search";
+
+
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -64,15 +67,14 @@ export default function AppMenu() {
                 }}
                 onClick={handleOpenUserMenu}
               >
-                <Avatar
-                  alt="Name"
+                <FmdGoodIcon
                   sx={{
-                    borderRadius: "10px",
-                    border: "1.4px solid #00ADEF; ",
-                    background: "transparent",
+                    mr: 1,
                     color: "#2E3192",
                   }}
                 />
+          <SearchIcon sx={{ color: "#2E3192" }} />
+
               </IconButton>
             </Tooltip>
             <Menu

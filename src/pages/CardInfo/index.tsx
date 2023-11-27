@@ -1,8 +1,18 @@
 import * as React from "react";
-import { Grid, IconButton, Typography, Box, Tabs, Tab } from "@mui/material";
+import {
+  Grid,
+  IconButton,
+  Typography,
+  Box,
+  Tabs,
+  Tab,
+  Avatar,
+} from "@mui/material";
 import { NavLink } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Info, Members } from "./Components";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -43,66 +53,91 @@ export default function CardInfo() {
     setValue(newValue);
   };
   return (
-    <div>
-      <Grid container sx={{mt:2}} alignItems={"center"} justifyContent={"space-between"}>
-        <Grid item>
-          <NavLink to="/" style={{ textDecoration: "none" }}>
-            <IconButton
-              sx={{
-                p: 0,
-              }}
-            >
-              <ArrowBackIcon
+    <Box sx={{ background: "#00ADEF" }}>
+      <Box>
+        <Grid
+          sx={{ p: 1 }}
+          container
+          alignItems={"center"}
+          justifyContent={"space-between"}
+        >
+          <Grid item>
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <IconButton
                 sx={{
-                  p: 1,
-                  borderRadius: "10px",
-                  border: "1.4px solid #00ADEF; ",
-                  background: "transparent",
-                  color: "#2E3192",
+                  p: 0,
                 }}
-              />
-            </IconButton>
-          </NavLink>
+              >
+                <ArrowBackIcon
+                  sx={{
+                    p: 1,
+                    borderRadius: "10px",
+                    border: "1.4px solid #00ADEF; ",
+                    background: "transparent",
+                    color: "#2E3192",
+                  }}
+                />
+              </IconButton>
+            </NavLink>
+          </Grid>
+          <Grid item>
+            <Typography
+              noWrap
+              color={"#2E3192"}
+              fontWeight={"bolder"}
+              fontSize={"13px"}
+            >
+              Asaka Tumani
+            </Typography>
+          </Grid>
         </Grid>
-        <Grid item>
-          <Typography
-            noWrap
-            color={"#2E3192"}
-            fontWeight={"bolder"}
-            fontSize={"13px"}
-          >
-            Asaka Tumani
-          </Typography>
-          <Typography
-            noWrap
-            color={"#b7b6b6"}
-            fontWeight={"bolder"}
-            fontSize={"13px"}
-            textAlign={"end"}
-          >
-            TIP arena
-          </Typography>
-        </Grid>
-      </Grid>
 
-      <Box sx={{ width: "100%", mt: 3 }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider", display: 'flex', justifyContent: "center", color: "#2E3192" }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-          >
-            <Tab label="Malumot" {...a11yProps(0)} />
-            <Tab label="A'zolar" {...a11yProps(1)} />
-          </Tabs>
+        <Box
+          sx={{
+            width: "100%",
+            mt: 3,
+            background: "#fff",
+            borderRadius: "20px 20px 0 0 ",
+            color: "#2E3192",
+          }}
+        >
+          {/* <Box sx={{ borderBottom: 1, borderColor: "divider", display: 'flex', justifyContent: "center", color: "#2E3192" }}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="basic tabs example"
+            >
+              <Tab label="Malumot" {...a11yProps(0)} />
+              <Tab label="A'zolar" {...a11yProps(1)} />
+            </Tabs>
+          </Box>
+          <CustomTabPanel value={value} index={0}>
+            <Info />
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={1}>
+            <Members />
+          </CustomTabPanel> */}
+          <Box sx={{ display: "flex", justifyContent: "space-around", p: 2 }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: "5px" }}>
+              <Avatar sx={{ width: 56, height: 56 }} />
+            </Box>
+            <Box>
+              <Box sx={{ display: "flex", alignItems: "center", gap: "5px" }}>
+                <AccessTimeIcon />
+                <Typography color={"#2E3192"} fontWeight={"bolder"} fontSize={'13px'} >
+                  20:00 - 21:00
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center", gap: "5px" }}>
+                <CalendarMonthIcon />
+                <Typography color={"#2E3192"} fontWeight={"bolder"} fontSize={'13px'} >
+                  Dushanba, 26-Noyabr
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
         </Box>
-        <CustomTabPanel value={value} index={0}>
-          <Info />
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={1}>
-          <Members />
-        </CustomTabPanel>
       </Box>
-    </div>
+    </Box>
   );
 }
